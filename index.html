@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">Portfolio</a>
+    <div class="toggle"></div>
+  </header>
+
+  <img src="man.png" alt="" class="man">
+  <div class="content">
+    <div class="contentBox">
+      <h4>Hello,</h4>
+      <h2>I'm Muhammad</h2>
+      <h3>Professional Web Designer</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna
+        aliqua. ut enim ad minim veniam.
+      </p>
+      <a href="#">HIRE ME</a>
+      <a href="#">DOWNLOAD CV</a>
+    </div>
+  </div>
+
+  <ul class="link">
+    <li><a href="#"><img src="facebook.png" alt=""></a></li>
+    <li><a href="#"><img src="twitter.png" alt=""></a></li>
+    <li><a href="#"><img src="instagram.png" alt=""></a></li>
+  </ul>
+
+  <ul class="menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Resume</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <img src="lighting.png" alt="" class="lighting1 icon" data-speed="8">
+  <img src="lighting.png" alt="" class="lighting2 icon" data-speed="-10">
+  <img src="lighting.png" alt="" class="lighting3 icon" data-speed="6">
+
+  <script>
+    const toggle = document.querySelector(".toggle");
+    const body = document.querySelector("body");
+    toggle.onclick = function() {
+      toggle.classList.toggle("active");
+      body.classList.toggle("active");
+    }
+
+    function parallax(e) {
+      this.querySelectorAll(".icon").forEach(layer => {
+        const speed = layer.getAttribute('data-speed');
+        const x = (window.innerWidth - e.pageX*speed)/100;
+        layer.style.transform = `translateX(${x}px)`;
+      });
+    }
+
+    document.addEventListener("mousemove", parallax);
+  </script>
+</body>
+</html>
